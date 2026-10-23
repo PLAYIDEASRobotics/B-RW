@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
-/*    Author:       PiRA (2498, 2502)                                         */
+/*    Author:       Richard Wang (1698V)                                      */
 /*    Created:      July 9, 2023                                              */
 /*    Description:  Competition Template                                      */
 /*                                                                            */
@@ -10,8 +10,8 @@
 #include "vex.h"
 #include "motor-control.h"
 #include "math.h"
-#include "../custom/include/autonomous.h"
-#include "../custom/include/user.h"
+#include "../../custom/include/autonomous.h"
+#include "../../custom/include/user.h"
 
 using namespace vex;
 
@@ -41,7 +41,8 @@ void pre_auton(void) {
 /*                                                                           */
 /*  You must modify the code to add your own robot specific commands here.   */
 /*                                                                           */
-/*---------------------------------------------------------------------------*/
+/*-------------------------------
+--------------------------------------------*/
 
 void autonomous(void) {
   runAutonomous();
