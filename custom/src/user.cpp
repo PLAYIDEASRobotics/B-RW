@@ -1,31 +1,30 @@
 #include "vex.h"
 #include "motor-control.h"
-#include "drivesmoothing.h"
 #include "../include/autonomous.h"
 
 
 bool auto_started = false;
 // Modify autonomous, driver, or pre-auton code below
-int auton_selected = 9;
+int auton_selected = 3;
 void runAutonomous() {
   Brain.Screen.clearScreen();
   Brain.Screen.printAt(5, 20, "running auton: %d", auton_selected);
   auto_started = true;
   switch(auton_selected) {
     case 0:
-      rightMatchload();
+      linearTuning();
       break;
     case 1:
       turnTuning();
       break;
     case 2:
-      odomExample();
+      skillsAuto();
       break;  
     case 3:
-      rightMatchload();
+      rightQuadrantAuto();
       break;
     case 4:
-      rightLowHigh();
+      leftQuadrantAuto();
       break; 
     case 5:
       boomerangTest();
@@ -37,10 +36,9 @@ void runAutonomous() {
       scoreHigh();
       break;
     case 8:
-      rightMatchload();
+      left4_3();
       break;
     case 9:
-      left4_3();
       break;
   }
 }
@@ -55,10 +53,10 @@ int chassis_flag = 0;
 
 void intakeC(){
   if (r1) {
-    intake_motor.setVelocity(75, percent);
+    intake_motor.setVelocity(100, percent);
     intake_motor.spin(forward);
   } else if (r2) {
-    intake_motor.setVelocity(75, percent);
+    intake_motor.setVelocity(100, percent);
     intake_motor.spin(reverse);
   } else {
     intake_motor.stop();
@@ -87,12 +85,12 @@ void pistonCs(){
   button_b_previous = button_b;
 
   if (button_y && !button_y_previous) {
-    clawRotate.set(!clawRotate.value());
+    clawPivot.set(!clawPivot.value());
   }
   button_y_previous = button_y;
 
   if (button_right_arrow && !button_right_arrow_previous) {
-    clawPivot.set(!clawPivot.value());
+    clawRotate.set(!clawRotate.value());
   }
   button_right_arrow_previous = button_right_arrow;
 }
@@ -103,10 +101,10 @@ void runDriver() {
   heading_correction = false;
   while (true) {
     // [-100, 100] for controller stick axis values
-    ch1 = controller_1.Axis1.value();
-    ch2 = controller_1.Axis2.value();
-    ch3 = controller_1.Axis3.value();
-    ch4 = controller_1.Axis4.value();
+    ch1 = controller_1.Axis1.position();
+    ch2 = controller_1.Axis2.position();
+    ch3 = controller_1.Axis3.position();
+    ch4 = controller_1.Axis4.position();
 
     // true/false for controller button presses
     l1 = controller_1.ButtonL1.pressing();

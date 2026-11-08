@@ -16,52 +16,6 @@
 
 void linearTuning() {
 
-  driveTo(5, 2000, true, 12);
-  cascade_motor.spin(fwd,12,volt);
-  wait(500, msec);
-  cascade_motor.spin(fwd,0, volt);
-  driveTo(-5, 1000, true, 12);
-  wait(250, msec);
-  driveTo(5, 1000, true, 12);
-  wait(250, msec);
-  driveTo(-5, 1000, true, 12);
-  wait(250, msec);
-  driveTo(12, 1000);
-  clawPivot.set(true);
-  wait(250, msec);
-  turnToAngle(270, 2500);
-  wait(250, msec);
-  driveTo(12, 1000);
-  wait(250, msec);
-  cascade_motor.spin(fwd,-12,volt);
-  wait(250, msec);
-  cascade_motor.spin(fwd,0,volt);
-  clawGrab.set(true);
-
-  driveTo(-7.5, 1000, true, 6);
-  wait(250, msec);
-  turnToAngle(215, 2500);
-  wait(250, msec);
-  driveTo(19, 1000, true, 4);
-  wait(100, msec);
-  clawGrab.set(false);
-  wait(100, msec);
-  driveTo(-19, 1000, true, 4);
-  wait(250, msec);
-  turnToAngle(270, 2500);
-  wait(250, msec);
-
-  cascade_motor.spin(fwd,12,volt);
-  wait(750, msec);
-  cascade_motor.spin(fwd,0, volt);
-
-  driveTo(7, 1000, true, 6);
-  wait(250, msec);
-  cascade_motor.spin(fwd,-12,volt);
-  wait(250, msec);
-  cascade_motor.spin(fwd,0,volt);
-  clawGrab.set(true);
-
   /*driveTo(8, 2000);
   cascade_motor.spin(fwd,12,volt);
   wait(500, msec);
@@ -83,67 +37,20 @@ void linearTuning() {
   cascade_motor.spin(fwd,0,volt);
   clawGrab.set(true);*/
 
-  /*driveTo(6, 3000);
+  driveTo(6, 3000);
   wait(100, msec);
-  driveTo(-6, 3000);
-  wait(5,sec);
-  driveTo(-6, 3000);
+  driveTo(6, 3000);
+  wait(100, msec);
   driveTo(-12, 3000);
+  wait(2000, msec);
+  driveTo(24, 3000);
+  wait(100, msec);
   driveTo(-24, 3000);
-  wait(5,sec);
-  driveTo(60, 3000);
-  wait(5,sec);
-  driveTo(-60, 3000);
-  */
+  wait(100, msec);
+  
 }
 
 void turnTuning() {
-
-  driveTo(5, 2000, true, 12);
-  cascade_motor.spin(fwd,12,volt);
-  wait(500, msec);
-  cascade_motor.spin(fwd,0, volt);
-  driveTo(-5, 1000, true, 12);
-  wait(250, msec);
-  driveTo(5, 1000, true, 12);
-  wait(250, msec);
-  driveTo(-5, 1000, true, 12);
-  wait(250, msec);
-  driveTo(11.5, 2000, true, 6);
-  clawPivot.set(true);
-  wait(250, msec);
-  turnToAngle(90, 2500);
-  wait(250, msec);
-  driveTo(12, 2000, true, 6);
-  wait(250, msec);
-  cascade_motor.spin(fwd,-12,volt);
-  wait(250, msec);
-  cascade_motor.spin(fwd,0,volt);
-  clawGrab.set(true);
-
-  driveTo(-10, 1000, true, 4);
-  wait(250, msec);
-  turnToAngle(35, 2500);
-  wait(250, msec);
-  driveTo(20, 3000, true, 4);
-  wait(50, msec);
-  clawGrab.set(false);
-  wait(100, msec);
-  driveTo(-21, 3000, true, 4);
-  wait(250, msec);
-  turnToAngle(90, 2500);
-  wait(250, msec);
-
-  cascade_motor.spin(fwd,12,volt);
-  wait(1500, msec);
-  cascade_motor.spin(fwd,0, volt);
-
-  driveTo(10, 2000, true, 6);
-  wait(250, msec);
-  cascade_motor.spin(fwd,-12,volt);
-  wait(250, msec);
-  cascade_motor.spin(fwd,0,volt);
-  clawGrab.set(true);
 
   /*clawPivot.set(true);
   cascade_motor.spin(fwd,12,volt);
@@ -170,13 +77,14 @@ void turnTuning() {
   wait(500, msec);
   driveTo(20, 2000, true, 5);*/
 
- /* turnToAngle(90, 2000);
-  turnToAngle(135, 2000);
-  turnToAngle(150, 2000);
-  turnToAngle(160, 2000);
-  turnToAngle(165, 2000);
+  turnToAngle(90, 2000);
+  wait(100, msec);
+  turnToAngle(45, 2000);
+  wait(100, msec);
   turnToAngle(0, 2000);
-  */
+  wait(100, msec);
+  turnToAngle(180, 2000);
+  
 }
 
 void odomExample() {
@@ -278,15 +186,84 @@ void scoreLow(){
   //scoringM.spin(fwd,-12,volt);
 }
 
-void pauseIntake(){
-  intake_motor.stop();
-  //scoringM.stop();
+void skillsAuto(){
+
+  driveTo(3, 2000, true, 12);
+  wait(100, msec);
+  driveTo(-3, 1000, true, 12);
+  wait(100, msec);
+  driveTo(3, 1000, true, 12);
+  wait(100, msec);
+  driveTo(-3, 1000, true, 12);
+  wait(100, msec);
+  driveTo(9.5, 2000, true, 6);
+  wait(250, msec);
+  turnToAngle(90, 2500);
+  wait(250, msec);
+  driveTo(12, 2000, true, 6);
+  wait(100, msec);
+  clawGrab.set(true);
+  wait(100, msec);
+
+  driveTo(-5, 1000, true, 12);
+  wait(250, msec);
+  turnToAngle(135, 2500);
+  wait(250, msec);
+  driveTo(7.7, 3000, true, 12);
+  wait(250, msec);
+  turnToAngle(88, 2500);
+  wait(250, msec);
+  driveTo(2, 3000, true, 6);
+  wait(250, msec);
+  turnToAngle(180, 2500);
+  wait(250, msec);
+  
+
 }
 
 
 
-void rightMatchload(){
+void rightQuadrantAuto(){
 
+  driveTo(3, 2000, true, 12);
+  wait(100, msec);
+  driveTo(-3, 1000, true, 12);
+  wait(100, msec);
+  driveTo(3, 1000, true, 12);
+  wait(100, msec);
+  driveTo(-3, 1000, true, 12);
+  wait(100, msec);
+  driveTo(9.5, 2000, true, 6);
+  wait(250, msec);
+  turnToAngle(270, 2500);
+  wait(250, msec);
+  driveTo(12, 2000, true, 6);
+  wait(100, msec);
+  clawGrab.set(true);
+
+  driveTo(-7, 1000, true, 4);
+  wait(250, msec);
+  turnToAngle(325, 2500);
+  wait(250, msec);
+  driveTo(14, 3000, true, 4);
+  wait(50, msec);
+  clawGrab.set(false);
+  wait(100, msec);
+  driveTo(-14, 3000, true, 4);
+  wait(250, msec);
+  turnToAngle(270, 2500);
+  wait(250, msec);
+
+  cascade_motor.spin(fwd,10,volt);
+  wait(300, msec);
+  cascade_motor.spin(fwd,0, volt);
+
+  driveTo(7, 2000, true, 6);
+  wait(100, msec);
+  cascade_motor.spin(fwd,-4,volt);
+  wait(200, msec);
+  cascade_motor.spin(fwd,0,volt);
+  clawGrab.set(true);
 
   /*
   intakeBlocks();                                       //start intake
@@ -315,8 +292,49 @@ void rightMatchload(){
   //hold position
 }
 
-void rightLowHigh(){
-  intakeBlocks();                                       //start intake
+void leftQuadrantAuto(){
+
+  driveTo(3, 2000, true, 12);
+  wait(100, msec);
+  driveTo(-3, 1000, true, 12);
+  wait(100, msec);
+  driveTo(3, 1000, true, 12);
+  wait(100, msec);
+  driveTo(-3, 1000, true, 12);
+  wait(100, msec);
+  driveTo(9.5, 2000, true, 6);
+  wait(250, msec);
+  turnToAngle(90, 2500);
+  wait(250, msec);
+  driveTo(12, 2000, true, 6);
+  wait(100, msec);
+  clawGrab.set(true);
+
+  driveTo(-7, 1000, true, 4);
+  wait(250, msec);
+  turnToAngle(35, 2500);
+  wait(250, msec);
+  driveTo(14, 3000, true, 4);
+  wait(50, msec);
+  clawGrab.set(false);
+  wait(100, msec);
+  driveTo(-14, 3000, true, 4);
+  wait(250, msec);
+  turnToAngle(90, 2500);
+  wait(250, msec);
+
+  cascade_motor.spin(fwd,10,volt);
+  wait(300, msec);
+  cascade_motor.spin(fwd,0, volt);
+
+  driveTo(7, 2000, true, 6);
+  wait(100, msec);
+  cascade_motor.spin(fwd,-4,volt);
+  wait(200, msec);
+  cascade_motor.spin(fwd,0,volt);
+  clawGrab.set(true);
+
+  /*intakeBlocks();                                       //start intake
   driveTo(15,2000);
   turnToAngle(30,2000);
   scraper.set(true);
@@ -336,8 +354,7 @@ void rightLowHigh(){
   driveTo(10,1000);
   wait(2500, msec);
   driveTo(-22,2000);
-  scoreHigh();
-  
+  scoreHigh();*/
 
 }
 

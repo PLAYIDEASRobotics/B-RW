@@ -19,7 +19,7 @@ brain  Brain;
 // VEXcode device constructors
 controller controller_1 = controller(primary);
 
-triport Expander = triport(PORT19);
+triport Expander = triport(PORT1);
 
 
 /*===========================================================================*/
@@ -37,25 +37,25 @@ triport Expander = triport(PORT19);
 // gearSetting is one of the following: ratio36_1(red), ratio18_1(green), ratio6_1(blue)
 // all chassis motors should be reversed appropriately so that they spin vertical when given a positive voltage input
 // such as driveChassis(12, 12)
-motor left_chassis1 = motor(PORT3, ratio6_1, true);
-motor left_chassis2 = motor(PORT4, ratio18_1, false);
-motor left_chassis3 = motor(PORT5, ratio6_1, false);
+motor left_chassis1 = motor(PORT8, ratio6_1, true);
+motor left_chassis2 = motor(PORT9, ratio18_1, false);
+motor left_chassis3 = motor(PORT10, ratio6_1, false);
 motor_group left_chassis = motor_group(left_chassis1, left_chassis2, left_chassis3);
-motor right_chassis1 = motor(PORT8, ratio6_1, true);
-motor right_chassis2 = motor(PORT9, ratio18_1, false);
-motor right_chassis3 = motor(PORT10, ratio6_1, true);
+motor right_chassis1 = motor(PORT3, ratio6_1, false);
+motor right_chassis2 = motor(PORT4, ratio18_1, true);
+motor right_chassis3 = motor(PORT5, ratio6_1, true);
 motor_group right_chassis = motor_group(right_chassis1, right_chassis2, right_chassis3);
 
-inertial inertial_sensor = inertial(PORT12);
+inertial inertial_sensor = inertial(PORT6);
 // rotation cascade_tracker = rotation(PORT14, true);
 
-motor cascade_motor1 = motor(PORT17, ratio18_1, false);
-motor cascade_motor2 = motor(PORT18, ratio18_1, true);
+motor cascade_motor1 = motor(PORT11, ratio18_1, false);
+motor cascade_motor2 = motor(PORT12, ratio18_1, true);
 motor_group cascade_motor = motor_group(cascade_motor1, cascade_motor2);
-motor intake_motor = motor(PORT1, ratio6_1, false);
+motor intake_motor = motor(PORT21, ratio6_1, true);
 digital_out clawRotate = digital_out(Expander.G);
-digital_out clawGrab = digital_out(Expander.H);
-digital_out clawPivot = digital_out(Expander.F);
+digital_out clawGrab = digital_out(Expander.B);
+digital_out clawPivot = digital_out(Expander.A);
 
 // Format is rotation(port, reversed)
 // just set these to random ports if you don't use tracking wheels
@@ -113,8 +113,8 @@ double wheel_distance_in = (36.0 / 60.0) * 3.25 * M_PI; //3.25 => 3.17
 // turn_*     : PID for turning in place
 // heading_correction_* : PID for heading correction during linear movement
 double distance_kp = .8, distance_ki = 0.1, distance_kd = 10; //.9 7
-double turn_kp = 0.6, turn_ki = 0, turn_kd = 4; //.365 1.2
-double heading_correction_kp = 0.6, heading_correction_ki = 0, heading_correction_kd = 4;
+double turn_kp = 0.4, turn_ki = 0.03, turn_kd = 3.1; //.365 1.2
+double heading_correction_kp = 0.4, heading_correction_ki = 0, heading_correction_kd = 1;
 
 // Enable or disable the use of tracking wheels
 bool using_horizontal_tracker = false;  // Set to true if a horizontal tracking wheel is installed and used for odometry
